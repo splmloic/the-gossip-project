@@ -1,0 +1,11 @@
+<div class="d-flex h-100 text-center">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+        <main class ="px-3">
+        <h1> <%= Gossip.find(@id).title %> </h1>
+            <p class="lead fs-1"> <%= Gossip.find(@id).content %> </p>
+            <p class="small"> <%= Gossip.find(@id).created_at %> </p>
+            <button class="btn btn-lg btn-light"> <%= link_to "Auteur", profil_path(@id)%>: <%= Gossip.find(@id).user.first_name%> <%= Gossip.find(@id).user.last_name %> </button>
+        </main>
+    </div>
+</div>

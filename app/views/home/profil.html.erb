@@ -1,0 +1,22 @@
+<div class="d-flex h-100 text-center">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <h1>Profil de <%= Gossip.find(@id).user.first_name %> </h1>
+        <p>
+            first_name : <%= Gossip.find(@id).user.first_name %><br/>
+            last_name : <%= Gossip.find(@id).user.last_name %><br/>
+            description : <%= Gossip.find(@id).user.description %><br/>
+            email : <%= Gossip.find(@id).user.email %><br/>
+            age : <%= Gossip.find(@id).user.age %><br/>
+            city : <%= Gossip.find(@id).user.city.name %><br/>
+        </p>
+    </div>
+    <div>
+    <%=Gossip.where(user_id:@id).each do |gossip|%>
+        <div class="card shadow-sm">
+                <h5 class="card-title"><%= gossip.title %></h5>
+                <button class="btn btn-light rounded-pill" type="button"> <%= link_to "Gossip", gossip_path(gossip)%>  </button>
+        </div>   
+    </div>
+    <% end %> 
+    </div>
+</div>
