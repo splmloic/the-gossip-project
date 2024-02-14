@@ -9,14 +9,12 @@
             age : <%= Gossip.find(@id).user.age %><br/>
             city : <%= Gossip.find(@id).user.city.name %><br/>
         </p>
+        <%= Gossip.where(user_id:@id).each do |gossip|%>
+            <div class="card shadow-sm">
+                    <p><%= puts gossip.title %></p>
+                    <p> <%= link_to "Gossip", gossip_path(gossip)%>  </p>
+            </div>   
+        <% end %> 
     </div>
-    <div>
-    <%=Gossip.where(user_id:@id).each do |gossip|%>
-        <div class="card shadow-sm">
-                <h5 class="card-title"><%= gossip.title %></h5>
-                <button class="btn btn-light rounded-pill" type="button"> <%= link_to "Gossip", gossip_path(gossip)%>  </button>
-        </div>   
-    </div>
-    <% end %> 
-    </div>
+<div>
 </div>
